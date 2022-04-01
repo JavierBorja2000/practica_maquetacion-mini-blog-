@@ -1,0 +1,263 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: monospace;
+    color: #1e3e4b;
+}
+a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+main{
+    position:relative;
+    background: #FAF8F7;
+}
+
+.header{
+    position:sticky;
+    top: 0;
+    padding: 7px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    background: white;
+    height: 45px;
+    font-size: 1.22rem;
+    z-index: 100;
+}
+.titulo{
+    font-weight:791;
+    letter-spacing:0.5px;
+}
+
+.panel-btn{
+    display: none;
+}
+
+.navigation {    
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    font-size: 1rem;
+}
+
+.navigation li {
+    margin-left: 2px;
+    padding: .5rem;
+}
+
+.navigation a{
+    display: inline-block;
+    padding: 0.61rem;
+    color:#1e3e4b;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: all .3s;
+}
+
+.navigation a:hover {
+   color:#541a8c;
+}
+
+
+.hero{
+    position:relative;
+    height: calc(100vh - 45px);
+    
+}
+
+.hero-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 870px;
+    height: 100%;
+}
+
+.hero-quienSoy{
+    position:relative;
+    width:40%;
+    bottom: 10px;
+    
+}
+.hero-quienSoy h2{
+    font-size: 6rem;
+    letter-spacing: 2px;
+}
+.hero-quienSoy span{
+    display:block;
+    font-family: monospace;
+    font-size:2.7rem;
+    margin-top:3px;
+    white-space: nowrap;
+    border-right: 4px solid;
+    width: 21ch;
+    
+    animation: escribiendo 3s steps(21), parpadeo .5s infinite step-end alternate;
+    
+    overflow:hidden;
+}
+
+@keyframes escribiendo{
+    from{ width: 0; }
+}
+
+@keyframes parpadeo{
+    50% {
+        border-color: transparent;
+    }
+}
+
+.hero-img{
+width: 50%;
+height: 40%;
+max-width: 325px;
+min-width: 225px;
+}
+.hero-img img{
+    display:block;
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 100%;
+}
+
+
+.wrapper-articles{
+    margin: 15px auto 0;
+    max-width: 760px;
+}
+
+.Articulos{
+    margin-left: 10px;
+    font-size: 2rem;
+    color:#541a8c;
+}
+.blogs{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+.blog{
+    margin: 10px;
+    width: 200px;
+    height: 140px;
+    box-shadow: 0px 4px 8px rgba(89, 73, 30, 0.16);
+    border-radius: 7px;
+    font-size: 1.4rem;
+    overflow: hidden;
+    transition:all .5s;
+}
+
+.blog:hover{
+    transform: translateY(-6px);
+}
+
+.blog_hero{
+    width: 100%;
+    height: 20%;
+    background-color: #541a8c;
+}
+
+.blog_info{
+    margin-top: 10px;
+    padding: 0 7px;
+}
+
+
+.blogs-card p{
+    padding-top: 7px;
+}
+
+
+@media screen and (max-width: 650px) {
+    .hero-quienSoy{
+        position: relative;
+        left: -20px;
+    }
+    .hero-quienSoy h2{
+       font-size: 4rem;
+    }
+    .hero-quienSoy span{
+        
+        font-size: 1.8rem;
+     }
+}
+
+@media screen and (max-width: 500px) {
+    .panel-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .panel-btn span, .panel-btn span::after, .panel-btn span::before{
+        width: 100%;
+    }
+
+    .panel-btn.is-active{
+        z-index: 100;
+    }
+
+    .navigation {
+        position: fixed;
+        z-index: 8;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        padding: 5rem 0;
+        font-size: 2rem;
+        font-weight: 600;
+        background-color: rgba(255, 255, 255, 9.5);
+        transition: transform .5s ease;
+        /* animacion */
+        transform: translate(100%, 0);
+    } 
+    
+    .navigation.is-active {
+        transform: translate(0,0);
+    }
+
+    .navigation a{
+        font-size: 2.5rem;
+    }
+
+    .hero-container{
+        flex-direction: column;
+    }
+
+    .hero-quienSoy {
+        order: 2;
+        margin-top: 30px;
+    }
+
+    .hero-img {
+        position: relative;
+        top: -35px;
+        width: 70%
+    }
+}
+
+@media screen and (max-width: 446px) {
+    .blogs{
+        display: block;
+    }
+    .blog {
+        margin: 30px auto;
+    }
+}
